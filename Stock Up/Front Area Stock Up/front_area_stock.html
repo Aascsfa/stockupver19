@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front Area</title>
+    <link rel="stylesheet" href="../../style.css"> <!-- Ensure the correct path to style.css -->
+    <style>
+        /* Additional CSS for the buttons */
+        .stock-control button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .stock-control button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stock up Calculator</h1>
+        <p>If the stock is full, move on to the next item. No need to input any number </p>
+        <p>If the Max Stock is 1, and you need to fill up, then press - </p>
+        
+        <!-- Counter Section -->
+        <div class="section">
+            <h2>Counter</h2>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Current Stock</th>
+                    <th>Max Stock</th>
+                    <th>Required Stock</th> <!-- New column -->
+                </tr>
+                <!-- Items for the Counter section -->
+                <tr>
+                    <td>Cone</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('cone')">-</button> <!-- Decrease button -->
+                        <span id="coneStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('cone')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>12</td>
+                    <td id="coneQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <tr>
+                    <td>Cup Holder</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('cupHolder')">-</button> <!-- Decrease button -->
+                        <span id="cupHolderStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('cupHolder')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>10</td>
+                    <td id="cupHolderQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <tr>
+                    <td>Straws</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('straws')">-</button> <!-- Decrease button -->
+                        <span id="strawsStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('straws')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>12</td>
+                    <td id="strawsQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <tr>
+                    <td>Napkin</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('napkin')">-</button> <!-- Decrease button -->
+                        <span id="napkinStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('napkin')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>12</td>
+                    <td id="napkinQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Present Section -->
+        <div class="section">
+            <h2>Present</h2>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Current Stock</th>
+                    <th>Max Stock</th>
+                    <th>Required Stock</th> <!-- New column -->
+                </tr>
+                <!-- Items for the Present section -->
+                <tr>
+                    <td>Chocolate sauce</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('chocolateSauce')">-</button> <!-- Decrease button -->
+                        <span id="chocolateSauceStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('chocolateSauce')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>2</td>
+                    <td id="chocolateSauceQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Strawberry sauce</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('strawberrySauce')">-</button> <!-- Decrease button -->
+                        <span id="strawberrySauceStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('strawberrySauce')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>2</td>
+                    <td id="strawberrySauceQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <tr>
+                    <td>Caramel Sauce</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('caramelSauce')">-</button> <!-- Decrease button -->
+                        <span id="caramelSauceStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('caramelSauce')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>2</td>
+                    <td id="caramelSauceQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <tr>
+                    <td>Chocolate drizzle</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('chocolateDrizzle')">-</button> <!-- Decrease button -->
+                        <span id="chocolateDrizzleStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('chocolateDrizzle')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>2</td>
+                    <td id="chocolateDrizzleQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <tr>
+                    <td>Oreo</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('oreo')">-</button> <!-- Decrease button -->
+                        <span id="oreoStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('oreo')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>3</td>
+                    <td id="oreoQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+            </table>
+        </div>
+
+        <!-- Uber Section -->
+        <div class="section">
+            <h2>Uber</h2>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Current Stock</th>
+                    <th>Max Stock</th>
+                    <th>Required Stock</th> <!-- New column -->
+                </tr>
+                <!-- Items for the Uber section -->
+                <tr>
+                    <td>Uber Bag</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('uberBag')">-</button> <!-- Decrease button -->
+                        <span id="uberBagStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('uberBag')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>8</td>
+                    <td id="uberBagQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <tr>
+                    <td>Uber Sticker</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('uberSticker')">-</button> <!-- Decrease button -->
+                        <span id="uberStickerStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('uberSticker')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>20</td>
+                    <td id="uberStickerQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <tr>
+                    <td>Small Bag</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('smallBag')">-</button> <!-- Decrease button -->
+                        <span id="smallBagStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('smallBag')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>2</td>
+                    <td id="smallBagQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <tr>
+                    <td>Medium Bag</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('mediumBag')">-</button> <!-- Decrease button -->
+                        <span id="mediumBagStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('mediumBag')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>8</td>
+                    <td id="mediumBagQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <tr>
+                    <td>Large Bag</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('largeBag')">-</button> <!-- Decrease button -->
+                        <span id="largeBagStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('largeBag')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>2</td>
+                    <td id="largeBagQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+            </table>
+        </div>
+        
+        <!-- Drink Section -->
+        <div class="section">
+            <h2>Drink</h2>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Current Stock</th>
+                    <th>Max Stock</th>
+                    <th>Required Stock</th> <!-- New column -->
+                </tr>
+                <!-- Items for the Drink section -->
+                <tr>
+                    <td>Large Lid</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('largeLid')">-</button> <!-- Decrease button -->
+                        <span id="largeLidStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('largeLid')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>12</td>
+                    <td id="largeLidQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <tr>
+                    <td>Small Lid</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('smallLid')">-</button> <!-- Decrease button -->
+                        <span id="smallLidStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('smallLid')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>16</td>
+                    <td id="smallLidQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+            </table>
+        </div>
+
+        <!-- Run Section -->
+        <div class="section">
+            <h2>Run</h2>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Current Stock</th>
+                    <th>Max Stock</th>
+                    <th>Required Stock</th> <!-- New column -->
+                </tr>
+                <!-- Items for the Run section -->
+                <tr>
+                    <td>Large Cup</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('largeCup')">-</button> <!-- Decrease button -->
+                        <span id="largeCupStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('largeCup')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>16</td>
+                    <td id="largeCupQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Medium Cup</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('mediumCup')">-</button> <!-- Decrease button -->
+                        <span id="mediumCupStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('mediumCup')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>16</td>
+                    <td id="mediumCupQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <tr>
+                    <td>Small Cup</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('smallCup')">-</button> <!-- Decrease button -->
+                        <span id="smallCupStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('smallCup')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>12</td>
+                    <td id="smallCupQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Small Sundae</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('smallSundae')">-</button> <!-- Decrease button -->
+                        <span id="smallSundaeStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('smallSundae')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>4</td>
+                    <td id="smallSundaeQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Large Sundae</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('largeSundae')">-</button> <!-- Decrease button -->
+                        <span id="largeSundaeStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('largeSundae')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>4</td>
+                    <td id="largeSundaeQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Orea</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('orea')">-</button> <!-- Decrease button -->
+                        <span id="oreaStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('orea')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>4</td>
+                    <td id="oreaQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>HM Box</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('hmBox')">-</button> <!-- Decrease button -->
+                        <span id="hmBoxStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('hmBox')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>1</td>
+                    <td id="hmBoxQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+            </table>
+        </div>
+
+        <!-- Fries Section -->
+        <div class="section">
+            <h2>Fries</h2>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Current Stock</th>
+                    <th>Max Stock</th>
+                    <th>Required Stock</th> <!-- New column -->
+                </tr>
+                <!-- Items for the Fries section -->
+                <tr>
+                    <td>Small Fries</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('smallFries')">-</button> <!-- Decrease button -->
+                        <span id="smallFriesStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('smallFries')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>1</td>
+                    <td id="smallFriesQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Medium Fries</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('mediumFries')">-</button> <!-- Decrease button -->
+                        <span id="mediumFriesStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('mediumFries')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>1</td>
+                    <td id="mediumFriesQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Large Fries</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('largeFries')">-</button> <!-- Decrease button -->
+                        <span id="largeFriesStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('largeFries')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>1</td>
+                    <td id="largeFriesQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+            </table>
+        </div>
+
+        <!-- Cafe Section -->
+        <div class="section">
+            <h2>Cafe</h2>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Current Stock</th>
+                    <th>Max Stock</th>
+                    <th>Required Stock</th> <!-- New column -->
+                </tr>
+                <!-- Items for the Cafe section -->
+                <tr>
+                    <td>Sweet n Sour</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('sweetNSour')">-</button> <!-- Decrease button -->
+                        <span id="sweetNSourStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('sweetNSour')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>2</td>
+                    <td id="sweetNSourQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>BBQ</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('bbq')">-</button> <!-- Decrease button -->
+                        <span id="bbqStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('bbq')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>2</td>
+                    <td id="bbqQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Aioli</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('aioli')">-</button> <!-- Decrease button -->
+                        <span id="aioliStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('aioli')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>2</td>
+                    <td id="aioliQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Sweet Mustard</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('sweetMustard')">-</button> <!-- Decrease button -->
+                        <span id="sweetMustardStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('sweetMustard')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>2</td>
+                    <td id="sweetMustardQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Ketchup Box</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('ketchupBox')">-</button> <!-- Decrease button -->
+                        <span id="ketchupBoxStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('ketchupBox')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>1</td>
+                    <td id="ketchupBoxQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Honey</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('honey')">-</button> <!-- Decrease button -->
+                        <span id="honeyStock">0</span> <!-- Display current stock -->
+                        <button onclick="increaseStock('honey')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>1</td>
+                    <td id="honeyQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Cafe Hot Cup L</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('cafeHotCupL')">-</button> <!-- Decrease button -->
+                        <span id="cafeHotCupLStock"></span> <!-- Display current stock -->
+                        <button onclick="increaseStock('cafeHotCupL')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>8</td>
+                    <td id="cafeHotCupLQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Cafe Hot Cup M</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('cafeHotCupM')">-</button> <!-- Decrease button -->
+                        <span id="cafeHotCupMStock"></span> <!-- Display current stock -->
+                        <button onclick="increaseStock('cafeHotCupM')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>6</td>
+                    <td id="cafeHotCupMQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Cafe Hot Cup S</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('cafeHotCupS')">-</button> <!-- Decrease button -->
+                        <span id="cafeHotCupSStock"></span> <!-- Display current stock -->
+                        <button onclick="increaseStock('cafeHotCupS')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>6</td>
+                    <td id="cafeHotCupSQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Cafe Hot Lid L</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('cafeHotLidL')">-</button> <!-- Decrease button -->
+                        <span id="cafeHotLidLStock"></span> <!-- Display current stock -->
+                        <button onclick="increaseStock('cafeHotLidL')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>14</td>
+                    <td id="cafeHotLidLQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <tr>
+                    <td>Cafe Hot Lid S</td>
+                    <td class="stock-control">
+                        <button onclick="decreaseStock('cafeHotLidS')">-</button> <!-- Decrease button -->
+                        <span id="cafeHotLidSStock"></span> <!-- Display current stock -->
+                        <button onclick="increaseStock('cafeHotLidS')">+</button> <!-- Increase button -->
+                    </td>
+                    <td>6</td>
+                    <td id="cafeHotLidSQuantity">0</td> <!-- Placeholder for Quantity -->
+                </tr>
+                <!-- Add more items as needed -->
+                <!-- Continue adding new items here -->
+            </table>
+        </div>
+
+        <a href="javascript:history.back()" class="btn btn-red">Back</a> <!-- Back button-->
+        <a href="front_area_stock_summary.html" class="btn">Calculate Stock</a>
+    </div>
+
+    <!-- JavaScript code to calculate Quantity -->
+    <script>
+        
+        // Function to decrease current stock
+        function decreaseStock(item) {
+            const stockElement = document.getElementById(`${item}Stock`);
+            let currentStock = parseInt(stockElement.textContent);
+            currentStock = Math.max(0, currentStock - 1); // Ensure stock doesn't go below 0
+            stockElement.textContent = currentStock;
+            calculateQuantity(item); // Recalculate quantity
+        }
+
+        // Function to increase current stock
+        function increaseStock(item) {
+            const stockElement = document.getElementById(`${item}Stock`);
+            let currentStock = parseInt(stockElement.textContent);
+            currentStock++; // Increase stock
+            stockElement.textContent = currentStock;
+            calculateQuantity(item); // Recalculate quantity
+        }
+        
+
+        // Function to calculate Quantity
+        function calculateQuantity(item) {
+            const stock = parseInt(document.getElementById(`${item}Stock`).textContent);
+            const requiredStock = {
+                // Add max stock values for each item
+                cone:12,
+                cupHolder:10,
+                straws:12,
+                napkin:12,
+                chocolateSauce:2,
+                strawberrySauce:2,
+                caramelSauce:2,
+                chocolateDrizzle:2,
+                oreo:3,
+                uberBag: 8,
+                uberSticker: 20,
+                smallBag: 2,
+                mediumBag: 8,
+                largeBag: 2,
+                largeLid: 12,
+                smallLid: 16,
+                largeCup: 16,
+                mediumCup: 16,
+                smallCup: 12,
+                smallSundae: 4,
+                largeSundae: 4,
+                orea: 4,
+                hmBox: 1,
+                smallFries: 1,
+                mediumFries: 1,
+                largeFries: 1,
+                sweetNSour: 2,
+                bbq: 2,
+                aioli: 2,
+                sweetMustard: 2,
+                ketchupBox: 1,
+                honey: 1,
+                cafeHotCupL: 8,
+                cafeHotCupM: 6,
+                cafeHotCupS: 6,
+                cafeHotLidL: 14,
+                cafeHotLidS: 6,
+                cafeColdLidFlatL: 6,
+                cafeColdLidFlatS: 6,
+                cafeColdLidCircleL: 6,
+                cafeColdLidCircleS: 6,
+                cafeColdCupL: 6,
+                cafeColdCupM: 6,
+                cafeColdCupS: 6,
+                chocolateCan: 2,
+                strawberryCan: 2,
+                caramelCan: 2,
+                chocolatePowder: 2,
+                chaiPowder: 3,
+                cafeBean: 8
+            };
+            const quantity = Math.max(0, requiredStock[item] - stock);
+
+            // Update the Quantity value in the table
+            document.getElementById(`${item}Quantity`).textContent = quantity;
+            // Store the quantity value in localStorage
+            localStorage.setItem(`${item}Quantity`, quantity);
+        }
+    </script>
+</body>
+</html>

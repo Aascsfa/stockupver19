@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front Area Stock Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Front Area Stock Summary</h1>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Required Stock</th> <!-- Changed from "Required Stock" to "Quantity" -->
+            <th>Completed</th>
+        </tr>
+        <script>
+            // Function to check if quantity is greater than 0 and add row to table
+            function addTableRow(item, quantity) {
+                if (quantity > 0) {
+                    const table = document.querySelector('table');
+                    const row = table.insertRow(-1);
+                    const cell1 = row.insertCell(0);
+                    const cell2 = row.insertCell(1);
+                    const cell3 = row.insertCell(2);
+                    cell1.textContent = item;
+                    cell2.textContent = quantity;
+                    cell3.innerHTML = '<input type="checkbox">';
+                }
+            }
+            // Clear localStorage when page loads
+            window.onload = function() {
+                localStorage.clear();
+            };
+
+            // Retrieve quantity values from localStorage and update the table
+            const coneQuantity = parseInt(localStorage.getItem('coneQuantity')) || 0;
+            addTableRow('Cone', coneQuantity);
+
+            const cupHolderQuantity = parseInt(localStorage.getItem('cupHolderQuantity')) || 0;
+            addTableRow('Cup Holder', cupHolderQuantity);
+
+            const happyMealToyQuantity = parseInt(localStorage.getItem('happyMealToyQuantity')) || 0;
+            addTableRow('HM Toy', happyMealToyQuantity);
+
+            const mediumBagQuantity = parseInt(localStorage.getItem('mediumBagQuantity')) || 0;
+            addTableRow('Medium Bag', mediumBagQuantity);
+
+            // Adding new items to the table
+            // Uber section
+            const uberBagQuantity = parseInt(localStorage.getItem('uberBagQuantity')) || 0;
+            addTableRow('Uber Bag', uberBagQuantity);
+
+            const uberStickerQuantity = parseInt(localStorage.getItem('uberStickerQuantity')) || 0;
+            addTableRow('Uber Sticker', uberStickerQuantity);
+
+            const smallBagQuantity = parseInt(localStorage.getItem('smallBagQuantity')) || 0;
+            addTableRow('Small Bag', smallBagQuantity);
+
+            const largeBagQuantity = parseInt(localStorage.getItem('largeBagQuantity')) || 0;
+            addTableRow('Large Bag', largeBagQuantity);
+
+            // Drink section
+            const largeLidQuantity = parseInt(localStorage.getItem('largeLidQuantity')) || 0;
+            addTableRow('Large Lid', largeLidQuantity);
+
+            const smallLidQuantity = parseInt(localStorage.getItem('smallLidQuantity')) || 0;
+            addTableRow('Small Lid', smallLidQuantity);
+
+            // Run section
+            const largeCupQuantity = parseInt(localStorage.getItem('largeCupQuantity')) || 0;
+            addTableRow('Large Cup', largeCupQuantity);
+
+            const mediumCupQuantity = parseInt(localStorage.getItem('mediumCupQuantity')) || 0;
+            addTableRow('Medium Cup', mediumCupQuantity);
+
+            const smallCupQuantity = parseInt(localStorage.getItem('smallCupQuantity')) || 0;
+            addTableRow('Small Cup', smallCupQuantity);
+
+            const smallSundaeQuantity = parseInt(localStorage.getItem('smallSundaeQuantity')) || 0;
+            addTableRow('Small Sundae', smallSundaeQuantity);
+
+            const largeSundaeQuantity = parseInt(localStorage.getItem('largeSundaeQuantity')) || 0;
+            addTableRow('Large Sundae', largeSundaeQuantity);
+
+            const oreaQuantity = parseInt(localStorage.getItem('oreaQuantity')) || 0;
+            addTableRow('Orea', oreaQuantity);
+
+            const hmBoxQuantity = parseInt(localStorage.getItem('hmBoxQuantity')) || 0;
+            addTableRow('HM Box', hmBoxQuantity);
+
+            // Fries section
+            const smallFriesQuantity = parseInt(localStorage.getItem('smallFriesQuantity')) || 0;
+            addTableRow('Small Fries', smallFriesQuantity);
+
+            const mediumFriesQuantity = parseInt(localStorage.getItem('mediumFriesQuantity')) || 0;
+            addTableRow('Medium Fries', mediumFriesQuantity);
+
+            const largeFriesQuantity = parseInt(localStorage.getItem('largeFriesQuantity')) || 0;
+            addTableRow('Large Fries', largeFriesQuantity);
+
+            // Cafe section
+            const sweetNSourQuantity = parseInt(localStorage.getItem('sweetNSourQuantity')) || 0;
+            addTableRow('Sweet n Sour', sweetNSourQuantity);
+
+            const bbqQuantity = parseInt(localStorage.getItem('bbqQuantity')) || 0;
+            addTableRow('BBQ', bbqQuantity);
+
+            const aioliQuantity = parseInt(localStorage.getItem('aioliQuantity')) || 0;
+            addTableRow('Aioli', aioliQuantity);
+
+            const sweetMustardQuantity = parseInt(localStorage.getItem('sweetMustardQuantity')) || 0;
+            addTableRow('Sweet Mustard', sweetMustardQuantity);
+
+            const ketchupBoxQuantity = parseInt(localStorage.getItem('ketchupBoxQuantity')) || 0;
+            addTableRow('Ketchup Box', ketchupBoxQuantity);
+
+            const honeyQuantity = parseInt(localStorage.getItem('honeyQuantity')) || 0;
+            addTableRow('Honey', honeyQuantity);
+        </script>
+    </table>
+</body>
+</html>

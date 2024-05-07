@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front Area Stock Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Front Area Stock Summary</h1>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th> <!-- Changed from "Required Stock" to "Quantity" -->
+            <th>Completed</th>
+        </tr>
+        <script>
+            // Function to check if quantity is greater than 0 and add row to table
+            function addTableRow(item, quantity) {
+                if (quantity > 0) {
+                    const table = document.querySelector('table');
+                    const row = table.insertRow(-1);
+                    const cell1 = row.insertCell(0);
+                    const cell2 = row.insertCell(1);
+                    const cell3 = row.insertCell(2);
+                    cell1.textContent = item;
+                    cell2.textContent = quantity;
+                    cell3.innerHTML = '<input type="checkbox">';
+                }
+            }
+
+            // Retrieve quantity values from localStorage and update the table
+            const coneQuantity = parseInt(localStorage.getItem('coneQuantity')) || 0;
+            addTableRow('Cone', coneQuantity);
+
+            const cupHolderQuantity = parseInt(localStorage.getItem('cupHolderQuantity')) || 0;
+            addTableRow('Cup Holder', cupHolderQuantity);
+
+            const happyMealToyQuantity = parseInt(localStorage.getItem('happyMealToyQuantity')) || 0;
+            addTableRow('Happy Meal Toy', happyMealToyQuantity);
+
+            const mediumBagQuantity = parseInt(localStorage.getItem('mediumBagQuantity')) || 0;
+            addTableRow('Medium Bag', mediumBagQuantity);
+        </script>
+    </table>
+</body>
+</html>

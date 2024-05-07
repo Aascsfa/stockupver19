@@ -1,0 +1,86 @@
+/* General styling for the body */
+body {
+    font-family: Arial, sans-serif; /* Set the font family */
+    margin: 0; /* Remove default margin */
+    padding: 20px; /* Add padding */
+    background-color: #f0f0f0; /* Set background color */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Minimum height to cover the viewport */
+    flex-direction: column; /* Align content in column direction */
+}
+
+/* Styling for container elements */
+.container {
+    text-align: center; /* Center text */
+}
+
+/* Styling for heading 1 */
+h1 {
+    color: #333; /* Set color */
+}
+
+/* Styling for paragraphs */
+p {
+    color: #666; /* Set color */
+    font-size: 18px; /* Set font size */
+    line-height: 1.6; /* Set line height */
+}
+
+/* Styling for tables */
+table {
+    width: 100%; /* Set table width */
+    border-collapse: collapse; /* Collapse borders */
+    margin-bottom: 20px; /* Add margin at the bottom */
+}
+
+/* Styling for table headers and data cells */
+th, td {
+    padding: 10px; /* Set padding */
+    border: 1px solid #ddd; /* Set border */
+    vertical-align: top; /* Align content to the top */
+    width: 25%; /* Equal width for each column */
+}
+
+/* Styling for table headers */
+th {
+    background-color: #f2f2f2; /* Set background color */
+}
+
+/* Styling for input fields within table cells */
+td input {
+    width: calc(100% - 20px); /* Adjust input width */
+    box-sizing: border-box; /* Include padding and border in input width */
+}
+
+/* Styling for buttons */
+.btn {
+    display: inline-block; /* Display as inline-block */
+    padding: 10px 20px; /* Set padding */
+    background-color: #007bff; /* Set background color */
+    color: #fff; /* Set text color */
+    text-decoration: none; /* Remove default underline */
+    border-radius: 5px; /* Set border radius */
+    margin-top: 20px; /* Add margin at the top */
+}
+
+/* Hover state for buttons */
+.btn:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}
+
+/* Styling for red buttons */
+.btn-red {
+    background-color: #ff0000; /* Set background color */
+}
+
+/* Hover state for red buttons */
+.btn-red:hover {
+    background-color: #cc0000; /* Change background color on hover */
+}
+
+/* Styling for footer */
+.footer {
+    margin-top: auto; /* Align at the bottom */
+}
